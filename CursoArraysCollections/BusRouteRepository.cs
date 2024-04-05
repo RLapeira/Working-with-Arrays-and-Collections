@@ -2,17 +2,23 @@
 {
     public class BusRouteRepository
     {
-        public static BusRoute[] InitializeRoutes()
+        public static List<BusRoute> InitializeRoutes()
         {
-            return new BusRoute[] {
+            List<BusRoute> result = new List<BusRoute>
+            {
                 new BusRoute(40, new string[] {
                     "Morecambe", "Lancaster", "Garstang", "Preston" }),
-                new BusRoute(42, new string[] { "Lancaster", "Garstang", "Blackpool" }),
-                new BusRoute(100, new string[] { "University", "Lancaster", "Morecambe" }),
+                new BusRoute(42, new string[] {
+                    "Lancaster", "Garstang", "Blackpool" }),
+                new BusRoute(1_000, new string[] {
+                    "Test origin", "Test destination" }),
+                new BusRoute(5, new string[] {
+                    "Overton", "Morecambe", "Carnforth" }),
                 new BusRoute(555, new string[] {
-                    "Lancaster", "Carnforth", "Kendal", "Windermere", "Keswick" })
+                    "Lancaster", "Carnforth", "Kendal", "Windermere", "Keswick" }),
             };
-
+            return result;
         }
+
     }
 }

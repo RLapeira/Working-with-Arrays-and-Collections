@@ -4,36 +4,19 @@
     {
         static void Main(string[] args)
         {
-            BusRoute[] allRoutes = BusRouteRepository.InitializeRoutes();
+            List<BusRoute> allRoutes = BusRouteRepository.InitializeRoutes();
 
-            Console.WriteLine("Where do you want to go to?");
-            string location = Console.ReadLine();
-
-            BusRoute[] routes = FindBusesTo(allRoutes, location);
-
-            if (routes.Length > 0)
+            Console.WriteLine($"Before: There are {allRoutes.Count} routes:");
+            for (int i = 0; i < allRoutes.Count; i++)
             {
-                foreach (BusRoute route in routes)
-                {
-                    Console.WriteLine($"You can use route {route}");
-                }
+                Console.WriteLine($"Route: {allRoutes[i]}");
             }
-            else
-            {
-                Console.WriteLine($"No routes go to {location}");
-            }
-        }
 
-        public static BusRoute[] FindBusesTo(BusRoute[] routes, string location)
-        {
-            return Array.FindAll(routes, route => route.Serves(location));
+            allRoutes.RemoveAll(route => route.Origin.StartsWith("Test "));
 
-            //foreach (BusRoute route in routes)
-            //{
-            //    if (route.Origin == location || route.Destination == location)
-            //        return route;
-            //}
-            //return null;
+            Console.WriteLine($"\r\nAfter: There are {allRoutes.Count} routes:");
+            foreach (BusRoute route in allRoutes)
+                Console.WriteLine($"Route: {route}");
         }
     }
 }
