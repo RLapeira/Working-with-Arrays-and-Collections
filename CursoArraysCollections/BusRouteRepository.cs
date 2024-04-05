@@ -22,5 +22,11 @@
         {
             return Array.FindAll(_allRoutes, route => route.Serves(location));
         }
+
+        internal BusRoute[] FindBusesBetween(string location1, string location2)
+        {
+            return Array.FindAll(_allRoutes,
+                route => route.Serves(location1) && route.Serves(location2));
+        }
     }
 }
