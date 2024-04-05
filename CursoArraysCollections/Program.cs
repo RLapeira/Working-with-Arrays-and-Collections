@@ -19,12 +19,15 @@
 
         public static BusRoute FindBusTo(BusRoute[] routes, string location)
         {
-            foreach (BusRoute route in routes)
-            {
-                if (route.Origin == location || route.Destination == location)
-                    return route;
-            }
-            return null;
+            return Array.Find(routes,
+                route => route.Origin == location || route.Destination == location);
+
+            //foreach (BusRoute route in routes)
+            //{
+            //    if (route.Origin == location || route.Destination == location)
+            //        return route;
+            //}
+            //return null;
         }
     }
 }
