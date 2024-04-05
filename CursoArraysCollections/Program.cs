@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            List<BusRoute> allRoutes = BusRouteRepository.InitializeRoutes();
+            var allRoutes = BusRouteRepository.InitializeRoutes();
 
             Console.WriteLine("Which route do you want to look up?");
             int number = int.Parse(Console.ReadLine());
 
-            BusRoute answer = allRoutes.Find(route => route.Number == number);
+            BusRoute answer = allRoutes[number];
 
             if (answer != null)
             {
