@@ -7,13 +7,7 @@
             BusRoute route40 = new BusRoute(40, "Morecambe", "Preston");
             BusRoute route42 = new BusRoute(42, "Lancaster", "Blackpool");
 
-            BusRoute[] routes =
-            {
-                route40,
-                route42,
-                new BusRoute(100, "University", "Morecambe"),
-                new BusRoute(555, "Lancaster", "Keswick")
-            };
+            BusRoute[] routes = new BusRoute[4];
 
             for (int i = 0; i < 2; i++)
             {
