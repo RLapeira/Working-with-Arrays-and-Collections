@@ -4,17 +4,17 @@
     {
         static void Main(string[] args)
         {
-            BusRoute[] allRoutes = BusRouteRepository.InitializeRoutes();
+            List<BusRoute> allRoutes = BusRouteRepository.InitializeRoutes();
 
-            Console.WriteLine($"Before: There are {allRoutes.Length} routes:");
+            Console.WriteLine($"Before: There are {allRoutes.Count} routes:");
             foreach (BusRoute route in allRoutes)
             {
                 Console.WriteLine($"Route: {route}");
             }
 
-            Array.Resize(ref allRoutes, 4);
+            allRoutes.RemoveAt(2);
 
-            Console.WriteLine($"\r\nAfter: There are {allRoutes.Length} routes:");
+            Console.WriteLine($"\r\nAfter: There are {allRoutes.Count} routes:");
             foreach (BusRoute route in allRoutes)
                 Console.WriteLine($"Route: {route}");
         }
