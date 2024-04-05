@@ -4,25 +4,27 @@
     {
         static void Main(string[] args)
         {
-            BusRoute route40 = new BusRoute(40, "Morecambe", "Preston");
-            BusRoute route42 = new BusRoute(42, "Lancaster", "Blackpool");
+            BusRoute[] allRoutes = BusRouteRepository.InitializeRoutes();
 
-            BusRoute[] routes = new BusRoute[4];
+            Console.WriteLine("Where do you want to go to?");
+            string location = Console.ReadLine();
 
-            routes[0] = route40;
-            routes[1] = route42;
-            routes[2] = new BusRoute(100, "University", "Morecambe");
-            routes[3] = new BusRoute(555, "Lancaster", "Keswick");
+            BusRoute route = FindBusTo(allRoutes, location);
 
-            for (int i = 0; i < 2; i++)
+            if (route != null)
+                Console.WriteLine($"You can use route {route}");
+            else
+                Console.WriteLine($"No routes go to {location}");
+        }
+
+        public static BusRoute FindBusTo(BusRoute[] routes, string location)
+        {
+            foreach (BusRoute route in routes)
             {
-                Console.WriteLine($"{i}: {routes[i]}");
+                if (route.Origin == location || route.Destination == location)
+                    return route;
             }
-
-            //foreach (BusRoute route in routes)
-            //{
-            //    Console.WriteLine(route);
-            //}
+            return null;
         }
     }
 }
