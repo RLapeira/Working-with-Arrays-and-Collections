@@ -4,12 +4,19 @@
     {
         static void Main(string[] args)
         {
-            var allRoutes = BusRouteRepository.InitializeRoutes();
+            BusRouteRepository repository = new BusRouteRepository();
 
-            foreach (BusRoute route in allRoutes.Values)
-            {
-                Console.WriteLine(route);
-            }
+            Console.WriteLine("Where do you want to go to?");
+            string location = Console.ReadLine();
+
+            BusRoute[] routes = repository.FindBusesTo(location);
+
+            if (routes.Length > 0)
+                foreach (BusRoute route in routes)
+                    Console.WriteLine($"You can use route {route}");
+            else
+                Console.WriteLine($"No routes go to{location}");
         }
+
     }
 }
