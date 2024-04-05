@@ -12,7 +12,7 @@
                 Console.WriteLine($"Route: {route}");
             }
 
-            allRoutes.RemoveAt(2);
+            allRoutes.RemoveAll(route => route.Origin.StartsWith("Test "));
 
             Console.WriteLine($"\r\nAfter: There are {allRoutes.Count} routes:");
             foreach (BusRoute route in allRoutes)
