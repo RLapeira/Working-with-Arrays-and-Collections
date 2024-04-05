@@ -6,23 +6,19 @@
         {
             BusRouteRepository repository = new BusRouteRepository();
 
-            Console.WriteLine("Where are you?");
-            string startingAt = Console.ReadLine();
+            BusTimes times5 = repository.BusTimesRoute5;
+            BusRoute route5 = times5.Route;
 
-            Console.WriteLine("Where do you want to go to?");
-            string goingTo = Console.ReadLine();
+            for (int iPlace = 0; iPlace < route5.PlacesServed.Length; iPlace++)
+            {
+                Console.Write(route5.PlacesServed[iPlace].PadRight(12));
 
-            BusRoute[] originRoutes = repository.FindBusesTo(startingAt);
-            BusRoute[] destinationRoutes = repository.FindBusesTo(goingTo);
-
-            HashSet<BusRoute> routes = new HashSet<BusRoute>(originRoutes); // añade directamente el primer array
-            routes.IntersectWith(destinationRoutes);
-
-            if (routes.Count > 0)
-                foreach (BusRoute route in routes)
-                    Console.WriteLine($"You can use route {route}");
-            else
-                Console.WriteLine($"No routes between {startingAt} and {goingTo}");
+                for (int iJourney = 0; iJourney < times5.Times.GetLength(1); iJourney++)
+                {
+                    Console.Write(times5.Times[iPlace, iJourney] + " ");
+                }
+                Console.WriteLine();
+            }
         }
 
     }
