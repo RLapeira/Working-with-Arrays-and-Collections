@@ -17,7 +17,26 @@
                 new BusRoute(5, new string[]
                     { "Overton", "Morecambe", "Carnforth" }),
             };
+
+            //string[,] timesRoute5 =
+            //{
+            //    { "15:40", "16:40", "17:40", "18:40" },
+            //    { "16:08", "17:08", "18:08", "19:08" },
+            //    { "16:35", "17:35", "18:35", "19:35" }
+            //}; -> Multidimensional Array (toda la tabla tiene las mismas columnas)
+
+            string[][] timesRoute5 =
+            {
+                new string[] { "15:40", "16:40", "17:40", "18:40", "19:40" },
+                new string[] { "16:08", "17:08", "18:08", "19:08", "20:08" },
+                new string[] { "16:35", "17:35", "18:35", "19:35" }
+            }; // -> Jagged Array (no tienen el mismo numero de columnas)
+
+            BusTimesRoute5 = new BusTimes(
+                Array.Find(_allRoutes, x => x.Number == 5), timesRoute5);
         }
+
+        public BusTimes BusTimesRoute5 { get; }
         public BusRoute[] FindBusesTo(string location)
         {
             return Array.FindAll(_allRoutes, route => route.Serves(location));
