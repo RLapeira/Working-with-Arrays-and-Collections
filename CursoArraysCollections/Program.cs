@@ -6,17 +6,19 @@
         {
             List<BusRoute> allRoutes = BusRouteRepository.InitializeRoutes();
 
-            Console.WriteLine($"Before: There are {allRoutes.Count} routes:");
-            for (int i = 0; i < allRoutes.Count; i++)
+            Console.WriteLine("Which route do you want to look up?");
+            int number = int.Parse(Console.ReadLine());
+
+            BusRoute answer = allRoutes.Find(route => route.Number == number);
+
+            if (answer != null)
             {
-                Console.WriteLine($"Route: {allRoutes[i]}");
+                Console.WriteLine($"The route you asked for is {answer}");
             }
-
-            allRoutes.RemoveAll(route => route.Origin.StartsWith("Test "));
-
-            Console.WriteLine($"\r\nAfter: There are {allRoutes.Count} routes:");
-            foreach (BusRoute route in allRoutes)
-                Console.WriteLine($"Route: {route}");
+            else
+            {
+                Console.WriteLine($"There is no route with number {number}");
+            }
         }
     }
 }

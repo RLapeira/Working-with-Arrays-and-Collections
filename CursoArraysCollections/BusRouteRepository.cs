@@ -16,6 +16,8 @@
                     "Overton", "Morecambe", "Carnforth" }),
                 new BusRoute(555, new string[] {
                     "Lancaster", "Carnforth", "Kendal", "Windermere", "Keswick" }),
+                new BusRoute(5, new string[] {
+                    "Overton", "Morecambe", "Carnforth"})
             };
             return result;
         }
