@@ -15,10 +15,10 @@
                 new BusRoute(555, "Lancaster", "Keswick")
             };
 
-            BusRoute firstRoute = routes[0];
-            Console.WriteLine($"The third route is {routes[2]}");
-            BusRoute lastRoute = routes[^1];  // igual a routes[routes.Length-1];
-            Console.WriteLine($"The last route is {lastRoute}");
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine($"{i}: {routes[i]}");
+            }
 
             //foreach (BusRoute route in routes)
             //{
