@@ -17,5 +17,17 @@ namespace CursoArraysCollections
         }
 
         public override string ToString() => $"{Number}: {Origin} -> {Destination}";
+
+        public bool Serves(string destination)
+        {
+            return Array.Exists(PlacesServed, place => place == destination);
+            //foreach (string place in PlacesServed)
+            //{
+            //	if (place == destination)
+            //		return true;
+            //}
+            //return false;
+        }
+
     }
 }
