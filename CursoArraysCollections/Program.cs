@@ -4,21 +4,14 @@
     {
         static void Main(string[] args)
         {
-            BusRouteRepository repository = new BusRouteRepository();
+            BusStop busStop = new BusStop();
+            Bus bus = new Bus();
 
-            BusTimes times5 = repository.BusTimesRoute5;
-            BusRoute route5 = times5.Route;
+            for (int i = 0; i < 6; i++)
+                busStop.PersonArrive(PassengerGenerator.CreatePassenger());
 
-            for (int iPlace = 0; iPlace < route5.PlacesServed.Length; iPlace++)
-            {
-                Console.Write(route5.PlacesServed[iPlace].PadRight(12));
-
-                foreach (string time in times5.Times[iPlace])
-                {
-                    Console.Write(time + " ");
-                }
-                Console.WriteLine();
-            }
+            busStop.BusArrive(bus);
+            bus.ArriveAtTerminus();
         }
 
     }
