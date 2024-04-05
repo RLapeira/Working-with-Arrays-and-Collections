@@ -10,11 +10,15 @@
             BusRoute[] routes =
             {
                 route40,
-                route42
+                route42,
+                new BusRoute(100, "University", "Morecambe"),
+                new BusRoute(555, "Lancaster", "Keswick")
             };
 
-            Console.WriteLine(route40);
-            Console.WriteLine(route42);
+            foreach (BusRoute route in routes)
+            {
+                Console.WriteLine(route);
+            }
         }
     }
 }
