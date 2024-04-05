@@ -12,9 +12,13 @@
             Console.WriteLine("Where do you want to go to?");
             string goingTo = Console.ReadLine();
 
-            BusRoute[] routes = repository.FindBusesBetween(startingAt, goingTo);
+            BusRoute[] originRoutes = repository.FindBusesTo(startingAt);
+            BusRoute[] destinationRoutes = repository.FindBusesTo(goingTo);
 
-            if (routes.Length > 0)
+            HashSet<BusRoute> routes = new HashSet<BusRoute>(originRoutes); // añade directamente el primer array
+            routes.IntersectWith(destinationRoutes);
+
+            if (routes.Count > 0)
                 foreach (BusRoute route in routes)
                     Console.WriteLine($"You can use route {route}");
             else
