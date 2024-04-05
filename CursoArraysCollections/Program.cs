@@ -7,9 +7,9 @@
             List<BusRoute> allRoutes = BusRouteRepository.InitializeRoutes();
 
             Console.WriteLine($"Before: There are {allRoutes.Count} routes:");
-            foreach (BusRoute route in allRoutes)
+            for (int i = 0; i < allRoutes.Count; i++)
             {
-                Console.WriteLine($"Route: {route}");
+                Console.WriteLine($"Route: {allRoutes[i]}");
             }
 
             allRoutes.RemoveAll(route => route.Origin.StartsWith("Test "));
