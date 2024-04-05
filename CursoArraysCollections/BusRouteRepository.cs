@@ -2,7 +2,7 @@
 {
     public class BusRouteRepository
     {
-        public static Dictionary<int, BusRoute> InitializeRoutes()
+        public static SortedDictionary<int, BusRoute> InitializeRoutes()
         {
 
             BusRoute route42 = new BusRoute(42, new string[]
@@ -16,7 +16,7 @@
             BusRoute route5 = new BusRoute(5, new string[]
                 { "Overton", "Morecambe", "Carnforth" });
 
-            var routes = new Dictionary<int, BusRoute>
+            var routes = new SortedDictionary<int, BusRoute>
             {
                 { 42, route42 },
                 { 40, route40 },
