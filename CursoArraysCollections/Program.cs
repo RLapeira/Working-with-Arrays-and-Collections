@@ -9,17 +9,18 @@
             Console.WriteLine("Where do you want to go to?");
             string location = Console.ReadLine();
 
-            BusRoute route = FindBusTo(allRoutes, location);
+            BusRoute[] routes = FindBusesTo(allRoutes, location);
 
-            if (route != null)
-                Console.WriteLine($"You can use route {route}");
+            if (routes.Length > 0)
+                foreach (BusRoute route in routes)
+                    Console.WriteLine($"You can use route {route}");
             else
                 Console.WriteLine($"No routes go to {location}");
         }
 
-        public static BusRoute FindBusTo(BusRoute[] routes, string location)
+        public static BusRoute[] FindBusesTo(BusRoute[] routes, string location)
         {
-            return Array.Find(routes,
+            return Array.FindAll(routes,
                 route => route.Origin == location || route.Destination == location);
 
             //foreach (BusRoute route in routes)
