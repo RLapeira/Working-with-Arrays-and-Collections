@@ -13,9 +13,9 @@
             {
                 Console.Write(route5.PlacesServed[iPlace].PadRight(12));
 
-                for (int iJourney = 0; iJourney < times5.Times.GetLength(1); iJourney++)
+                foreach (string time in times5.Times[iPlace])
                 {
-                    Console.Write(times5.Times[iPlace, iJourney] + " ");
+                    Console.Write(time + " ");
                 }
                 Console.WriteLine();
             }
