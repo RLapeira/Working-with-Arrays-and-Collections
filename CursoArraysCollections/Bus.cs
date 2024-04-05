@@ -11,13 +11,13 @@ namespace CursoArraysCollections
         public const int Capacity = 5;
         public int Space { get => Capacity - _passengers.Count; }
 
-        private Stack<Passenger> _passengers = new Stack<Passenger>();
+        private LinkedList<Passenger> _passengers = new LinkedList<Passenger>();
         public bool Load(Passenger passenger)
         {
             if (Space < 1)
                 return false;
 
-            _passengers.Push(passenger);
+            _passengers.AddLast(passenger);
             Console.WriteLine($"{passenger} got on the bus");
             return true;
         }
