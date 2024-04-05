@@ -41,7 +41,7 @@ namespace CursoArraysCollections
                 currentNode = nextNode;
             } while (currentNode != null);
 
-            Console.WriteLine($"There are {_passengers.Count} people still on the bus");
+            Console.WriteLine($"{_passengers.Count} people left on the bus");
         }
 
     }
