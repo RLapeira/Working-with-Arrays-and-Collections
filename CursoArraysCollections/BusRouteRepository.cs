@@ -10,7 +10,8 @@
                 new BusRoute(42, new string[] { "Lancaster", "Garstang", "Blackpool" }),
                 new BusRoute(100, new string[] { "University", "Lancaster", "Morecambe" }),
                 new BusRoute(555, new string[] {
-                    "Lancaster", "Carnforth", "Kendal", "Windermere", "Keswick" })
+                    "Lancaster", "Carnforth", "Kendal", "Windermere", "Keswick" }),
+                new BusRoute(1_000, new string[] { "Test origin", "Test destination" })
             };
 
         }
