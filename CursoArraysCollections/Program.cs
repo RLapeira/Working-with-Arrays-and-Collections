@@ -11,6 +11,7 @@
                 busStop.PersonArrive(PassengerGenerator.CreatePassenger());
 
             busStop.BusArrive(bus);
+            bus.ArriveAtTerminus();
         }
 
     }
